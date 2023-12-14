@@ -34,7 +34,7 @@ const Layout = () => {
       mutate(res);
     };
 
-    isAuthenticated && getTokenAndRegsiter();
+    // isAuthenticated && getTokenAndRegsiter();
   }, [isAuthenticated]);
 
   return (
