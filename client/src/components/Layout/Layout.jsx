@@ -21,18 +21,17 @@ const Layout = () => {
     mutationFn: (token) => createUser(user?.email, token),
   });
 
-  useEffect(() => {
-    const getTokenAndRegsiter = async () => {
-      const res = await getAccessTokenWithPopup({
-        authorizationParams: {
-          audience: "https://realestate-8j9d.vercel.app",
-          scope: "openid profile email",
-        },
-      });
-      localStorage.setItem("access_token", res);
-      setUserDetails((prev) => ({ ...prev, token: res }));
-      mutate(res);
-    };
+  useEffect(async () => {
+    const getTokenAndRegsiter = async () => {};
+    const res = await getAccessTokenWithPopup({
+      authorizationParams: {
+        audience: "https://realestate-8j9d.vercel.app",
+        scope: "openid profile email",
+      },
+    });
+    localStorage.setItem("access_token", res);
+    setUserDetails((prev) => ({ ...prev, token: res }));
+    mutate(res);
 
     // isAuthenticated && getTokenAndRegsiter();
   }, [isAuthenticated]);
