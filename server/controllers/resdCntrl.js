@@ -47,6 +47,7 @@ export const getAllResidencies = asyncHandler(async (req, res) => {
       createdAt: "desc",
     },
   });
+  console.log("residencies", residencies);
   res.send(residencies);
 });
 
