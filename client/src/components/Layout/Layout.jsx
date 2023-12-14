@@ -15,25 +15,26 @@ const Layout = () => {
 
   const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
-  console.log(isAuthenticated);
+
   const { mutate } = useMutation({
     mutationKey: [user?.email],
     mutationFn: (token) => createUser(user?.email, token),
   });
 
-  useEffect(async () => {
-    const getTokenAndRegsiter = async () => {};
-    const res = await getAccessTokenWithPopup({
-      authorizationParams: {
-        audience: "https://realestate-8j9d.vercel.app",
-        scope: "openid profile email",
-      },
-    });
-    localStorage.setItem("access_token", res);
-    setUserDetails((prev) => ({ ...prev, token: res }));
-    mutate(res);
+  useEffect(() => {
+    const getTokenAndRegsiter = async () => {
+      const res = await getAccessTokenWithPopup({
+        authorizationParams: {
+          audience: "https://realestate-8j9d.vercel.app",
+          scope: "openid profile email",
+        },
+      });
+      localStorage.setItem("access_token", res);
+      setUserDetails((prev) => ({ ...prev, token: res }));
+      mutate(res);
+    };
 
-    // isAuthenticated && getTokenAndRegsiter();
+    isAuthenticated && getTokenAndRegsiter();
   }, [isAuthenticated]);
 
   return (
