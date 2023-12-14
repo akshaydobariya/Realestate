@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain="dev-kpcvdyah47mtfmjt.us.auth0.com"
       clientId="houovPbYLzazMSX3eUH64HjG6pvoZagu"
       authorizationParams={{
-        redirect_uri: "https://realestate-ruby-zeta.vercel.app",
+        redirect_uri: "htpps://realestate-qk5u-client.vercel.app",
       }}
       audience="http://localhost:8000"
       scope="openid profile email"
